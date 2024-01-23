@@ -1,1 +1,6 @@
 .venv
+ether-linda-master
+artifacs/
+sc_deploy/
+sc_test/
+template.sol
