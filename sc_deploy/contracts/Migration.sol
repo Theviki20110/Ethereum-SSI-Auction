@@ -1,19 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^ 0.8.9;
 
-contract Migrations {
-  address public owner = msg.sender;
-  uint public last_completed_migration;
+contract SimpleStorage {
+    uint storedData;
 
-  modifier restricted() {
-    require(
-      msg.sender == owner,
-      "This function is restricted to the contract's owner"
-    );
-    _;
-  }
+    function set(uint x) public {
+        storedData = x;
+    }
 
-  function setCompleted(uint completed) public restricted {
-    last_completed_migration = completed;
-  }
+    function get() public view returns (uint) {
+        return storedData;
+    }
 }

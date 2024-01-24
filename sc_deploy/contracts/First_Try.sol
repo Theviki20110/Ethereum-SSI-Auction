@@ -16,7 +16,7 @@ contract First_Try {
   constructor() {
     for (uint256 i = 0; i < TOTAL_TICKETS; i++) {
       tickets[i].owner = address(0x0);
-      tickets[i].price = 1e17;
+      tickets[i].price = 10e17;
     }
   }
   

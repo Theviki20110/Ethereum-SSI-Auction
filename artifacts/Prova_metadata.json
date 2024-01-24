@@ -1,0 +1,105 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_val",
+						"type": "uint256"
+					}
+				],
+				"name": "edit_value",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"notice": "tutto il codice viene eseguito quando un blocco viene estratto  in modo che i miner definiscano data ed ora (timing) nel blocco*",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"template.sol": "Prova"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"template.sol": {
+			"keccak256": "0xb26e36e198fdb6e3cbc3906fa719e278d9e1640d8ceb8575cfde5dab96e2297c",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://ff423ad51dac79b37544061c01d4890c4c95f204dbd0c560db30b3af8ea8787d",
+				"dweb:/ipfs/Qmdwdmm5d5w3ZogMFbkM4WdQfQHPcUg5CwT6gqBdteK9hu"
+			]
+		}
+	},
+	"version": 1
+}
