@@ -9,6 +9,7 @@ contract Auction{
     address winner;
     uint256 best_price;
     bool    is_open;
+    mapping(address => uint256) public bidders;
 
 
     constructor(string memory _obj, uint256 _price){
@@ -17,9 +18,8 @@ contract Auction{
         price = _price;
 
         /*
-            address(0): indirizzo Ethereum valido, ma è spesso utilizzato 
-            per rappresentare l'assenza di un indirizzo valido o un valore 
-            non inizializzato
+            address(0): A valid Ethereum address, but it is often used to represent 
+            the absence of a valid address or an uninitialized value.
         */
 
         winner = address(0);
@@ -27,8 +27,6 @@ contract Auction{
         is_open = false;
     }
 
-
-    /* Lo uso per verificare che l'account in uso sia il proprietario dell'asta o meno */
     modifier isOwner() {
         require(owner == msg.sender, "Only the owner open/can close the auction");
         _;
@@ -39,31 +37,43 @@ contract Auction{
         _;
     }
 
+    event AuctionOpened(address _owner, string _object, uint256 _initialPrice);
+    event AuctionClosed(address _owner, address _winner, uint256 _winningBid);
+    event NewBid(string _text, address _bidder, uint256 _bidAmount);
+    event FundsWithdrawn(address _withdrawer, uint256 amount);
+    event WinningWithdrawn(address _winner, string _object);
 
     function open() public isOwner{
         is_open = true;
+        emit AuctionOpened(owner, object, price);
     }
 
     function close() public isOwner isOpened{
         is_open = false;
+        emit AuctionClosed(owner, winner, best_price);
     }
 
+    /* I've mapped (address => offered_import) in order to refund users who don't win the auction*/
     function offer() public payable isOpened {
         require(msg.value > best_price, "L'offerta fatta non supera la migliore");
         best_price = msg.value;
         winner = msg.sender;
+        emit NewBid("New bid is proposed:", msg.sender, msg.value);
+        bidders[winner] += msg.value;
     }
-
+    
+    
     function retire_win() public payable {
         require(msg.sender == winner, "Solo il vincitore dell'asta puo' ritirare la vincita");
         require(is_open == false, "L'asta non e' ancora chiusa");
-        payable(msg.sender).transfer(msg.value);
+        emit WinningWithdrawn(winner, object);
     }
 
+    /* TO BE TESTED: Function should return collected funds but It doesn't */
     function retire_funds() public payable {
         require(msg.sender != winner, "Il vincitore dell'asta non puo' ritirare i fondi");
         require(is_open == false, "L'asta non e' ancora chiusa");
-        payable(msg.sender).transfer(msg.value);
+        payable(msg.sender).transfer(bidders[msg.sender]);
     }
 
 }
