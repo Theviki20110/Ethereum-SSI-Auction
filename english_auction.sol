@@ -46,7 +46,7 @@ contract Auction{
     function open() public isOwner{
         is_open = true;
         emit AuctionOpened(owner, object, price);
-    }
+    } 
 
     function close() public isOwner isOpened{
         is_open = false;
@@ -69,11 +69,15 @@ contract Auction{
         emit WinningWithdrawn(winner, object);
     }
 
-    /* TO BE TESTED: Function should return collected funds but It doesn't */
+    /* Function return offered funds at each owner */
     function retire_funds() public payable {
         require(msg.sender != winner, "Il vincitore dell'asta non puo' ritirare i fondi");
         require(is_open == false, "L'asta non e' ancora chiusa");
+
+        emit FundsWithdrawn(msg.sender, bidders[msg.sender]);
         payable(msg.sender).transfer(bidders[msg.sender]);
+        
+        bidders[msg.sender] = 0;
     }
 
 }

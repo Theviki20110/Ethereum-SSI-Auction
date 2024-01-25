@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.22+commit.4fc1097e"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -202,9 +202,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"english_auction.sol": "Auction"
+			"Project/MultiAgentBlockchain/english_auction.sol": "Auction"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -216,12 +216,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"english_auction.sol": {
-			"keccak256": "0xb3dcf2f323fddc3cf8787dc715f2f422fb3007925764022456c363ff579a930f",
+		"Project/MultiAgentBlockchain/english_auction.sol": {
+			"keccak256": "0x383ca10d16e709f01a635145ffa9e9b4091cb32adffc783998bd84d3e4d52eda",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://f3d0293602439fa3d1e3173412a7abe8c719872bdd393103b7f91ce1bb64fa9c",
-				"dweb:/ipfs/QmXX9WhoFDdWU33gRhpSn9UZxFK15jqDCxJLBbfasvDpJh"
+				"bzz-raw://2e0bf0ba2753283d6bca4eafa99889dcc0f558e23979034a598c0f6d8c65fcd5",
+				"dweb:/ipfs/QmZo1rMyYzzZqHZQyru2CFuZwKM4DTrfMu2Ez7U1tubggq"
 			]
 		}
 	},
