@@ -3,7 +3,7 @@ pragma solidity ^ 0.8.9;
 
 contract Auction{
 
-    address owner;
+    address payable owner;
     string  object;
     uint    price;
     address winner;
@@ -13,7 +13,7 @@ contract Auction{
 
 
     constructor(string memory _obj, uint256 _price){
-        owner = msg.sender;
+        owner = payable(msg.sender);
         object = _obj;
         price = _price;
 
@@ -55,7 +55,7 @@ contract Auction{
 
     /* I've mapped (address => offered_import) in order to refund users who don't win the auction*/
     function offer() public payable isOpened {
-        require(msg.value > best_price, "L'offerta fatta non supera la migliore");
+        require(msg.value < best_price, "L'offerta fatta non supera la migliore");
         best_price = msg.value;
         winner = msg.sender;
         emit NewBid("New bid is proposed:", msg.sender, msg.value);
@@ -67,6 +67,7 @@ contract Auction{
         require(msg.sender == winner, "Solo il vincitore dell'asta puo' ritirare la vincita");
         require(is_open == false, "L'asta non e' ancora chiusa");
         emit WinningWithdrawn(winner, object);
+        owner.transfer(best_price);
     }
 
     /* Function return offered funds at each owner */

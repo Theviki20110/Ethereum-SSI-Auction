@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Project/MultiAgentBlockchain/SSI-auction.sol": "SSI"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Project/MultiAgentBlockchain/SSI-auction.sol": {
+			"keccak256": "0x965b25081706d5c273402b5c4cc16fbcbca4698f3be8f623f8b90f2a249da82d",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://659da613345a774251c757da1973245a5dcb8bb28217d79ee9bbbcd84324a05a",
+				"dweb:/ipfs/QmZgwp4BYU5KM4Afq6Bs4E2BZJuXT86EJGKXjmPNH3TjUK"
+			]
+		},
+		"Project/MultiAgentBlockchain/english_auction.sol": {
+			"keccak256": "0x5eacfb57ec348e3110ed83f8f5bff01bc25f96ad4cc2eca687936d6f37355202",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://693b5f9a832a1a37187929ef265addc7eb7118d6f77b3e11baeebbb01639aabd",
+				"dweb:/ipfs/QmNsDD7f2wJTbdhQbBeECtucEqf9CcyS5jCpVF3nxsn4M5"
+			]
+		}
+	},
+	"version": 1
+}
