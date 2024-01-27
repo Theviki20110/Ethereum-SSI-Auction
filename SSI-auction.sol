@@ -16,10 +16,7 @@ contract SSI {
     
     */
 
-    struct Positions{
-        uint x;
-        uint y;
-    }
+
 
     uint nUsers;
 
@@ -27,8 +24,8 @@ contract SSI {
                         "Target5","Target6","Target7","Target8", 
                         "Target9","Target10"];
     
-    Positions[10] userPositions;
-    Positions[10] targetPositions;
+    Auction.Positions[10] userPositions;
+    Auction.Positions[10] targetPositions;
 
     mapping(string => address) assignedTarget;
     
@@ -53,8 +50,16 @@ contract SSI {
     function SSIAuction() public {
 
         for(uint i = 0;  i < nUsers; i++){
-            Auction auct = new Auction(targets[i], 100);
+            Auction auct = new Auction(targets[i], 100, targetPositions[i]);
             
+            auct.open();
+
+            while(auct.getUserLenght() != 9){
+
+            }
+            
+            auct.close();
+
         }
     }
 

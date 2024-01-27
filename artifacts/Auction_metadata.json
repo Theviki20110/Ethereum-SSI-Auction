@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.8.22+commit.4fc1097e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -16,6 +16,23 @@
 						"internalType": "uint256",
 						"name": "_price",
 						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "x",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "y",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Auction.Positions",
+						"name": "_pos",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -204,7 +221,7 @@
 		"compilationTarget": {
 			"Project/MultiAgentBlockchain/english_auction.sol": "Auction"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -217,11 +234,11 @@
 	},
 	"sources": {
 		"Project/MultiAgentBlockchain/english_auction.sol": {
-			"keccak256": "0x1e3e767adb2b21383018499a17791cd1318f3906bfc49cd94c8e4626e63829c9",
+			"keccak256": "0xac47e8971a4e13d80d2d8d735af3e2342bbf2e840fb82ddc236b6c93793c0da4",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://96c0fab58c714a10ecdf7d9a1c009ea70f583a4dcc17b7eae18e6923747e05f0",
-				"dweb:/ipfs/QmWrWci5VojCLS3UhspB5ZwdhaqMFympVPQJC4jcT3eMNp"
+				"bzz-raw://a3db2c8c4a701ba82c09ff8f2a2a07056b829ac90646c7db652dc4b56bf2658a",
+				"dweb:/ipfs/QmbPimZati3HY6fSfaMpchB8wDtSjen3FtTt9NvxdsJqe1"
 			]
 		}
 	},

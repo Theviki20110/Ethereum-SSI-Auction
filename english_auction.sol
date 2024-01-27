@@ -1,7 +1,18 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^ 0.8.9;
 
+
+/*
+    address(0): A valid Ethereum address, but it is often used to represent 
+    the absence of a valid address or an uninitialized value.
+*/
+
 contract Auction{
+    
+    struct Positions{
+        uint x;
+        uint y;
+    }
 
     address payable owner;
     string  object;
@@ -9,19 +20,15 @@ contract Auction{
     address winner;
     uint256 best_price;
     bool    is_open;
+    Positions pos;
     mapping(address => uint256) public bidders;
+    address[] users;
 
-
-    constructor(string memory _obj, uint256 _price){
+    constructor(string memory _obj, uint256 _price, Positions memory _pos){
         owner = payable(msg.sender);
         object = _obj;
         price = _price;
-
-        /*
-            address(0): A valid Ethereum address, but it is often used to represent 
-            the absence of a valid address or an uninitialized value.
-        */
-
+        pos = _pos;
         winner = address(0);
         best_price = 0;
         is_open = false;
@@ -53,13 +60,25 @@ contract Auction{
         emit AuctionClosed(owner, winner, best_price);
     }
 
+    function getUserLenght() public view isOpened returns (uint len) {
+        return users.length;
+    }
+
+
     /* I've mapped (address => offered_import) in order to refund users who don't win the auction*/
     function offer() public payable isOpened {
         require(msg.value < best_price, "L'offerta fatta non supera la migliore");
+        emit NewBid("New bid is proposed:", msg.sender, msg.value);
+        
         best_price = msg.value;
         winner = msg.sender;
-        emit NewBid("New bid is proposed:", msg.sender, msg.value);
+        
+        if(bidders[winner] == 0){
+            users.push(winner);
+        }
+
         bidders[winner] += msg.value;
+        
     }
     
     
@@ -67,6 +86,7 @@ contract Auction{
         require(msg.sender == winner, "Solo il vincitore dell'asta puo' ritirare la vincita");
         require(is_open == false, "L'asta non e' ancora chiusa");
         emit WinningWithdrawn(winner, object);
+        
         owner.transfer(best_price);
     }
 
@@ -74,10 +94,10 @@ contract Auction{
     function retire_funds() public payable {
         require(msg.sender != winner, "Il vincitore dell'asta non puo' ritirare i fondi");
         require(is_open == false, "L'asta non e' ancora chiusa");
-
         emit FundsWithdrawn(msg.sender, bidders[msg.sender]);
-        payable(msg.sender).transfer(bidders[msg.sender]);
         
+        payable(msg.sender).transfer(bidders[msg.sender]);
+
         bidders[msg.sender] = 0;
     }
 
