@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.22+commit.4fc1097e"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -16,23 +16,6 @@
 						"internalType": "uint256",
 						"name": "_price",
 						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "x",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "y",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct Auction.Positions",
-						"name": "_pos",
-						"type": "tuple"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -179,6 +162,45 @@
 			},
 			{
 				"inputs": [],
+				"name": "endAt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWinner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isOpen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "offer",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -193,14 +215,14 @@
 			},
 			{
 				"inputs": [],
-				"name": "retire_funds",
+				"name": "retireFunds",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "retire_win",
+				"name": "retireWin",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -219,9 +241,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Project/MultiAgentBlockchain/english_auction.sol": "Auction"
+			"Project/MultiAgentBlockchain/auction.sol": "Auction"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -233,12 +255,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Project/MultiAgentBlockchain/english_auction.sol": {
-			"keccak256": "0xac47e8971a4e13d80d2d8d735af3e2342bbf2e840fb82ddc236b6c93793c0da4",
+		"Project/MultiAgentBlockchain/auction.sol": {
+			"keccak256": "0x5f32dbf217e40849dce1f7f0be06de3194238f1a534be6ab04e523eb5d4ea11c",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://a3db2c8c4a701ba82c09ff8f2a2a07056b829ac90646c7db652dc4b56bf2658a",
-				"dweb:/ipfs/QmbPimZati3HY6fSfaMpchB8wDtSjen3FtTt9NvxdsJqe1"
+				"bzz-raw://775e0711ff60b9bb73b11f890cf4683c96d21733b4af33c90607d42c1f64658a",
+				"dweb:/ipfs/QmPnQVp5uuGuAdqL8UMxK2LAfeqMRAtbfyknPoEs61k8qm"
 			]
 		}
 	},

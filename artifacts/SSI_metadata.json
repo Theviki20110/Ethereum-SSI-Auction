@@ -9,6 +9,185 @@
 				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_winningBid",
+						"type": "uint256"
+					}
+				],
+				"name": "AuctionClosed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_object",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_initialPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "AuctionOpened",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_withdrawer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_text",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_bidder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_bidAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "NewBid",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_object",
+						"type": "string"
+					}
+				],
+				"name": "WinningWithdrawn",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_obj",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					}
+				],
+				"name": "buildAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "close",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "makeOffer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "open",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retireFunds",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retireWin",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -39,19 +218,11 @@
 	},
 	"sources": {
 		"Project/MultiAgentBlockchain/SSI-auction.sol": {
-			"keccak256": "0x965b25081706d5c273402b5c4cc16fbcbca4698f3be8f623f8b90f2a249da82d",
+			"keccak256": "0x26f02a4418897a69e67141e44e81b636185e94bdcf7c77765f80abfe7ca2c1d3",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://659da613345a774251c757da1973245a5dcb8bb28217d79ee9bbbcd84324a05a",
-				"dweb:/ipfs/QmZgwp4BYU5KM4Afq6Bs4E2BZJuXT86EJGKXjmPNH3TjUK"
-			]
-		},
-		"Project/MultiAgentBlockchain/english_auction.sol": {
-			"keccak256": "0x5eacfb57ec348e3110ed83f8f5bff01bc25f96ad4cc2eca687936d6f37355202",
-			"license": "UNLICENSED",
-			"urls": [
-				"bzz-raw://693b5f9a832a1a37187929ef265addc7eb7118d6f77b3e11baeebbb01639aabd",
-				"dweb:/ipfs/QmNsDD7f2wJTbdhQbBeECtucEqf9CcyS5jCpVF3nxsn4M5"
+				"bzz-raw://d1ec0c9272081eeaa2eea4188d06534b286547b98d3f7ae9bce2055a05b7ff49",
+				"dweb:/ipfs/QmR4x73PMJusPwfuJMYcoEHCWoPVDjA2DmtBVhXBdf5Wxz"
 			]
 		}
 	},
