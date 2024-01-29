@@ -231,11 +231,11 @@
 	},
 	"sources": {
 		"Project/MultiAgentBlockchain/SSI-auction.sol": {
-			"keccak256": "0x2c32abbf94a469ad9d99ff11a7aa4c5bf3db7ec8c22a4646ca88c03bfd394a73",
+			"keccak256": "0x2fdf0207485fe38d335b863e231b3622e30936ef5f4c783659b20de20f60a49c",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://476bf372871ae01cdc59b13cde62774a6c3cc76c834d4964f9642414f1c423f9",
-				"dweb:/ipfs/QmVV8Y6VbaK2Z6Cdb36aPyvvEadXTAPwvHeCEFKBJbVdWY"
+				"bzz-raw://9bf68f5389ca65c18ea0c4b4b8bc98b143b3e0bbf423d9ba30cce2dfab37e107",
+				"dweb:/ipfs/QmQfPRBC7g2EpvEeAg9iDDragJgpHgNsBtybBbbMkP66Mt"
 			]
 		}
 	},

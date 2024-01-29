@@ -19,8 +19,8 @@ contract SSI {
                         "Target9","Target10"];
     
     uint[10] targetCosts = [55, 12, 28, 86, 39, 99, 4, 65, 30, 8];
-    mapping(address => uint[]) userTasks;
 
+    mapping(address => uint[]) userTasks;
     mapping(string => address) assignedTarget;
     
     address payable owner;
@@ -57,14 +57,14 @@ contract SSI {
     function open() public isOwner {
         emit AuctionOpened(owner, object, price);
         is_open = true;
-        endAt = block.timestamp + 10 seconds;
+        endAt = block.timestamp + 50 seconds;
     } 
 
     function buildAuction(string memory _obj, uint256 _price) public isOwner {
         object = _obj;
         price = _price;
         winner = address(0);
-        best_offer = 0;
+        best_offer = 200;
         is_open = false;
     }
 
@@ -77,7 +77,7 @@ contract SSI {
     }
 
     /* Check if there are still other tasks to be assigned */
-    function checkOtherTasks() public view isOpened isOwner returns (bool status) { 
+    function checkOtherTasks() public view isOwner returns (bool status) { 
         if (i < targets.length){
             return true;
         }
@@ -116,7 +116,7 @@ contract SSI {
     }
 
     
-    function assignTask() public {
+    function assignTask() public isOwner{
         require(msg.sender == owner, "Only the owner can assign the task");
         require(is_open == false, "The auction is still opened");
         emit WinningWithdrawn(winner, object);
