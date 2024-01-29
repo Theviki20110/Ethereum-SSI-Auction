@@ -18,8 +18,8 @@ contract SSI {
                         "Target5","Target6","Target7","Target8", 
                         "Target9","Target10"];
     
-    uint[10] targetPositions = [55, 12, 28, 86, 39, 99, 4, 65, 30, 8];
-    uint[10] userPositions = [57, 89, 23, 68, 5, 94, 17, 36, 46, 73];
+    uint[10] targetCosts = [55, 12, 28, 86, 39, 99, 4, 65, 30, 8];
+    mapping(address => uint[]) userTasks;
 
     mapping(string => address) assignedTarget;
     
@@ -29,7 +29,7 @@ contract SSI {
     uint endAt;
     uint i = 0;
     address winner;
-    uint256 best_price;
+    uint256 best_offer;
     bool    is_open;
     address[] users;
 
@@ -64,43 +64,64 @@ contract SSI {
         object = _obj;
         price = _price;
         winner = address(0);
-        best_price = 0;
+        best_offer = 0;
         is_open = false;
     }
 
     function startAuction() public isOwner {
         require(i < 10, "Not enough tasks");
-        buildAuction(targets[i], targetPositions[i]);
+        require(checkOtherTasks() == true, "All tasks have been already assigned");
+        buildAuction(targets[i], targetCosts[i]);
         open();
         i++;
+    }
+
+    /* Check if there are still other tasks to be assigned */
+    function checkOtherTasks() public view isOpened isOwner returns (bool status) { 
+        if (i < targets.length){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
     function close() public isOpened isOwner {
         require(block.timestamp >= endAt, "Auction still not ended");
-        emit AuctionClosed(owner, winner, best_price);
+        emit AuctionClosed(owner, winner, best_offer);
         is_open = false;
     }
 
-
-
-
     /* I've mapped (address => offered_import) in order to refund users who don't win the auction*/
     function makeOffer(uint value) public isOpened {
-        require(value < best_price, "The offer made does not exceed the best");
-        require(block.timestamp < endAt, "Auction still not ended");
+        require(msg.sender != owner, "The owner can't make an offer");
+        require(block.timestamp < endAt, "Auction closed");
+        require(value < best_offer, "The offer made exceed the best");
 
         emit NewBid("New bid is proposed:", msg.sender, value);
         
-        best_price = value;
+        best_offer = value;
         winner = msg.sender;   
     }
+
+    function offer() public isOpened{
+        uint totalActualCosts = 0;
+
+        for(uint j = 0; j < userTasks[msg.sender].length; j++){
+            totalActualCosts += userTasks[msg.sender][j];
+        }
+
+        makeOffer(totalActualCosts + targetCosts[i]);
+    }
+
     
-    function retireWin() public {
-        require(msg.sender == winner, "Only the winner can obtain the task");
+    function assignTask() public {
+        require(msg.sender == owner, "Only the owner can assign the task");
         require(is_open == false, "The auction is still opened");
         emit WinningWithdrawn(winner, object);
         
         assignedTarget[targets[i]] = winner;
+        userTasks[winner].push(targetCosts[i]);
     }
 }

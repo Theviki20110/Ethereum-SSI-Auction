@@ -124,6 +124,13 @@
 				"type": "event"
 			},
 			{
+				"inputs": [],
+				"name": "assignTask",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -139,6 +146,19 @@
 				"name": "buildAuction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "checkOtherTasks",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -163,23 +183,16 @@
 			},
 			{
 				"inputs": [],
-				"name": "open",
+				"name": "offer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "retireFunds",
+				"name": "open",
 				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "retireWin",
-				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -218,11 +231,11 @@
 	},
 	"sources": {
 		"Project/MultiAgentBlockchain/SSI-auction.sol": {
-			"keccak256": "0x26f02a4418897a69e67141e44e81b636185e94bdcf7c77765f80abfe7ca2c1d3",
+			"keccak256": "0x2c32abbf94a469ad9d99ff11a7aa4c5bf3db7ec8c22a4646ca88c03bfd394a73",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://d1ec0c9272081eeaa2eea4188d06534b286547b98d3f7ae9bce2055a05b7ff49",
-				"dweb:/ipfs/QmR4x73PMJusPwfuJMYcoEHCWoPVDjA2DmtBVhXBdf5Wxz"
+				"bzz-raw://476bf372871ae01cdc59b13cde62774a6c3cc76c834d4964f9642414f1c423f9",
+				"dweb:/ipfs/QmVV8Y6VbaK2Z6Cdb36aPyvvEadXTAPwvHeCEFKBJbVdWY"
 			]
 		}
 	},
