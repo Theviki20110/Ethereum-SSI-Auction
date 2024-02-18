@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.8.22+commit.4fc1097e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -218,7 +218,7 @@
 		"compilationTarget": {
 			"Project/MultiAgentBlockchain/SSI-auction.sol": "SSI"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -231,11 +231,11 @@
 	},
 	"sources": {
 		"Project/MultiAgentBlockchain/SSI-auction.sol": {
-			"keccak256": "0x2fdf0207485fe38d335b863e231b3622e30936ef5f4c783659b20de20f60a49c",
+			"keccak256": "0x86b47de073b518246a3a07a89f9b269588a2dbae7d1865b3a28747af00517422",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://9bf68f5389ca65c18ea0c4b4b8bc98b143b3e0bbf423d9ba30cce2dfab37e107",
-				"dweb:/ipfs/QmQfPRBC7g2EpvEeAg9iDDragJgpHgNsBtybBbbMkP66Mt"
+				"bzz-raw://e617c0b6126aabdf0df70493fec2479844e3eefa0845b30cc01f1d40be89300e",
+				"dweb:/ipfs/QmQC2PM3XftAVkW8kD1q1yRGYcqtzwsUTq35RAhxPHuZUm"
 			]
 		}
 	},

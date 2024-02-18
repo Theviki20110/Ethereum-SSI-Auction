@@ -112,7 +112,7 @@ contract SSI {
             totalActualCosts += userTasks[msg.sender][j];
         }
 
-        makeOffer(totalActualCosts + targetCosts[i]);
+        makeOffer(totalActualCosts + price);
     }
 
     
@@ -122,6 +122,6 @@ contract SSI {
         emit WinningWithdrawn(winner, object);
         
         assignedTarget[targets[i]] = winner;
-        userTasks[winner].push(targetCosts[i]);
+        userTasks[winner].push(price);
     }
 }
